@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Jadoo",
+    "slug": "Jadoo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.anonymous.Jadoo"
+    }
+  }
+}
