@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shubham J | Shubham Jangid</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#project">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Dynamic content will be loaded here -->
+      <div id="content-area"></div>
+      <!-- Static Footer -->
+      <footer class="footer">
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/shubham-jangid-65b3bb277/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+        <p class="copyright">&copy; 2023 Shubham Jangid. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JavaScript for hash-based dynamic loading -->
+  <script>
+    function loadPage() {
+      const hash = window.location.hash || "#home";
+      const page = hash.substring(1); // remove '#'
+      const contentArea = document.getElementById('content-area');
+
+      // Show loading indicator
+      contentArea.innerHTML = "<p>Loading...</p>";
+
+      fetch(`${page}.html`)
+        .then(response => {
+          if (!response.ok) throw new Error("Page not found");
+          return response.text();
+        })
+        .then(data => {
+          contentArea.innerHTML = data;
+        })
+        .catch(error => {
+          contentArea.innerHTML = "<p>Sorry, content not found.</p>";
+          console.error(error);
+        });
+    }
+
+    // Run on load + hash change
+    window.addEventListener("load", loadPage);
+    window.addEventListener("hashchange", loadPage);
+  </script>
+</body>
+</html>

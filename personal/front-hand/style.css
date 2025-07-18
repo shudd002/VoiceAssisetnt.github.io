@@ -1,0 +1,116 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  padding: 2rem 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #888;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.main-content .blue {
+  color: #2196F3;
+}
+
+.wave {
+  animation: wave 1.5s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(15deg); }
+  30% { transform: rotate(-10deg); }
+  45% { transform: rotate(15deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.main-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #222;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #2196F3;
+}
+
+.footer .copyright {
+  font-size: 13px;
+  color: #888;
+}
